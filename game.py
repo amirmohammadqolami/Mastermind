@@ -22,11 +22,11 @@ class Game(object):
 
     def turn(self):
         if self.is_ended:
-            print("Game Over!!")
+            print(GAMEOVER_MESSAGE)
             return
 
         guess = input()
-        guess = guess.split(",")
+        guess = guess.split(SPLIT_CHAR)
 
         black = 0
         white = 0
@@ -37,7 +37,7 @@ class Game(object):
             elif guess[i] in self.initial_state:
                 white += 1
 
-        print("black : {} , white: {}".format(black, white))
+        print(GUESS_RESULT_MESSAGE.format(black, white))
 
         self.turns += 1
         self.check_state(black)
@@ -47,10 +47,10 @@ class Game(object):
 
     def check_state(self, black):
         if self.check_win(black):
-            print("Congratulation , You won .")
+            print(WIN_MESSAGE)
             self.end()
         if self.check_lose():
-            print("I'm so sorry , you lose , initial state : {}".format(self.to_str()))
+            print(LOSE_MESSAGE.format(self.to_str()))
             self.end()
 
     def check_win(self, black):
@@ -62,9 +62,10 @@ class Game(object):
     def end(self):
         self.is_ended = True
 
-    # print("your black score:{} and white score:{}".format(black, white))
+    def start(self):
+        for turn in range(MAX_TURN):
+            game.turn()
 
 
 game = Game()
-for turn in range(MAX_TURN):
-    game.turn()
+game.start()
