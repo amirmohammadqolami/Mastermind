@@ -62,7 +62,8 @@ class Game(object):
     def end(self):
         self.is_ended = True
 
-    def start(self):
+    @staticmethod
+    def start():
         for turn in range(MAX_TURN):
             game.turn()
 
