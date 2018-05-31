@@ -48,6 +48,7 @@ class Game(object):
     def check_state(self, black):
         if self.check_win(black):
             print(WIN_MESSAGE)
+            self.is_won = True
             self.end()
         if self.check_lose():
             print(LOSE_MESSAGE.format(self.to_str()))
