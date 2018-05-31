@@ -12,7 +12,7 @@ When game will be done , return 2 value , once black , and another is white .
 
 Black value : colors you guess exactly correct , even position
 
-White value : colors you just guess correct its name , not situation.
+White value : colors you just guess correct its name , not position.
 
 If you'll earn 3 black in one of your chance , you'll won , otherwise , unfortunately you'll be lost .
 
